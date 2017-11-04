@@ -6,16 +6,15 @@ use FOS\RestBundle\Controller\Annotations\Version;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Version("v1")
- *
  * Class PessoaController
  * @package AppBundle\Controller\Api
+ *
+ * @Version("v1")
  */
-class PessoaController extends Controller
+class PessoaController extends BaseApiController
 {
     /**
      * This is the documentation description of your method, it will appear
@@ -35,6 +34,8 @@ class PessoaController extends Controller
      */
     public function newAction()
     {
+        $this->denyAccessUnlessGranted('', '');
+
         $response = [
             'links' => [
                 'self' => '',

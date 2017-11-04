@@ -40,4 +40,4 @@ RUN docker-php-ext-enable xdebug \
 
 RUN usermod -u 1000 www-data
 
-EXPOSE 9000
+EXPOSE 9001
