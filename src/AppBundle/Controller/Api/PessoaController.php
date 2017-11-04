@@ -34,7 +34,7 @@ class PessoaController extends BaseApiController
      */
     public function newAction()
     {
-        $this->denyAccessUnlessGranted('', '');
+        // $this->denyAccessUnlessGranted('', '');
 
         $response = [
             'links' => [

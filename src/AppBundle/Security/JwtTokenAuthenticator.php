@@ -4,6 +4,7 @@ namespace AppBundle\Security;
 
 
 use AppBundle\Api\ResponseFactory;
+use AppBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTDecodeFailureException;
@@ -87,7 +88,7 @@ class JwtTokenAuthenticator  extends AbstractGuardAuthenticator
     public function getCredentials(Request $request)
     {
         $extractor = new AuthorizationHeaderTokenExtractor(
-            'Bearer',
+            '',
             'Authorization'
         );
 
@@ -127,7 +128,7 @@ class JwtTokenAuthenticator  extends AbstractGuardAuthenticator
             throw new CustomUserMessageAuthenticationException('Invalid Token');
         }
 
-        return $data;
+        return new UserRepository();
     }
 
     /**

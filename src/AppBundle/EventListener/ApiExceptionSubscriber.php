@@ -16,7 +16,7 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
     private $debug;
     private $responseFactory;
 
-    public function __construct($debug = false, ResponseFactory $responseFactory)
+    public function __construct($debug = true, ResponseFactory $responseFactory)
     {
         $this->debug = $debug;
         $this->responseFactory = $responseFactory;

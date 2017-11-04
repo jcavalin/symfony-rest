@@ -3,7 +3,7 @@
 namespace AppBundle\Api;
 
 
-class ApiProblemException
+class ApiProblemException extends \Exception
 {
 
 }
