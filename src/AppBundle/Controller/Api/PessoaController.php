@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class PessoaController extends Controller
 {
-
     /**
      * This is the documentation description of your method, it will appear
      * on a specific pane. It will read all the text until the first
@@ -36,7 +35,16 @@ class PessoaController extends Controller
      */
     public function newAction()
     {
-        return new Response('Hello!');
+        $response = [
+            'links' => [
+                'self' => '',
+                'next' => '',
+                'last' => '',
+            ],
+            'data' => []
+        ];
+
+        return new Response(json_encode($response));
     }
 
 

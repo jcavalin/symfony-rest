@@ -33,16 +33,24 @@ framework:
     php_errors:
         log: true
 fos_rest:
+  view:
+        mime_types: {'jsonp': ['application/javascript+jsonp']}
+  format_listener:
+        enabled: true
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: 'html' }
   versioning:
-      enabled: true
-      resolvers:
-        query: true # Query parameter: /users?version=v1
-        custom_header: true # X-Accept-Version header
-        media_type: # Accept header
-            enabled: true
-            regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+        enabled: true
+        resolvers:
+          query: true # Query parameter: /users?version=v1
+          custom_header: true # X-Accept-Version header
+          media_type: # Accept header
+              enabled: true
+              regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
 nelmio_api_doc: ~
 # Twig Configuration
+
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
