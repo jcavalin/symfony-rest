@@ -18,7 +18,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale: '%locale%'
@@ -32,7 +32,16 @@ framework:
     assets: ~
     php_errors:
         log: true
-
+fos_rest:
+  versioning:
+      enabled: true
+      resolvers:
+        query: true # Query parameter: /users?version=v1
+        custom_header: true # X-Accept-Version header
+        media_type: # Accept header
+            enabled: true
+            regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+nelmio_api_doc: ~
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'

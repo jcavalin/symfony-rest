@@ -1,4 +1,11 @@
-symfony-api
+symfony-rest
 ===========
 
-A Symfony project created on November 4, 2017, 1:50 am.
+A Symfony rest project with docker.
+
+# Symfony Docker Edition – PHP 7 FPM + NGINX + POSTGRES
+https://github.com/raniery/symfony-docker
+
+## Quck Installation
+    docker-compose up -d --build
+
